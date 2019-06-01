@@ -15,4 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::group([
+    'prefix'     => 'admin',
+    'middleware' => 'admin',    
+], function () { // custom admin routes
+    CRUD::resource('customer', 'admin\CustomerCrudController');
+}); // this should be the absolute last line of this file
+
 
