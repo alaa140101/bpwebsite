@@ -162,6 +162,11 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Backpack\Base\BaseServiceProvider::class,
+        Backpack\MenuCRUD\MenuCRUDServiceProvider::class,
+        Backpack\LangFileManager\LangFileManagerServiceProvider::class,
+
+
+
 
         /*
          * Package Service Providers...
