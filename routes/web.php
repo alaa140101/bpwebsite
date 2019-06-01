@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/homepage');
 });
 
 Route::group([
@@ -21,5 +21,9 @@ Route::group([
 ], function () { // custom admin routes
     CRUD::resource('customer', 'admin\CustomerCrudController');
 }); // this should be the absolute last line of this file
+
+/** CATCH-ALL ROUTE for Backpack/PageManager - needs to be at the end of your routes.php file  **/
+Route::get('{page}/{subs?}', ['uses' => 'PageController@index'])
+    ->where(['page' => '^(((?=(?!admin))(?=(?!\/)).))*$', 'subs' => '.*']);
 
 
